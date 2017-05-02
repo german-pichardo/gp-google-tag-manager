@@ -104,7 +104,7 @@ if( !class_exists( 'GpGtm' )){
          * Section slug callback
          */
         public function gp_gtm_section_account_code_callback() {
-            echo "<hr><h2>".__(  'Head Area' )."</h2>";
+            echo "<hr><h2>".__(  'Gtm code' )."</h2>";
         }
         /**
          * Section label callback
