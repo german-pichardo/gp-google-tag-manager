@@ -110,7 +110,7 @@ if( !class_exists( 'GpGtm' )){
          * Section label callback
          */
         public function gp_gtm_section_after_body_callback() {
-              { ?>
+            { ?>
                 <hr><h2>After Body</h2>
                 <p class='description'>Copy the following snippet and paste it immediately after the opening <code>body</code> </p>
                 <textarea class='large-text' readonly='readonly' rows='8' ><?php echo htmlspecialchars("<?php if (function_exists('google_tag_manager_js_2')) {
