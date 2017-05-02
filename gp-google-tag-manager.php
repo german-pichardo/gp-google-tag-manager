@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Gp: Google Tag Manager
- * Description: Tags before and after body (Menu->Settings->Gp Google tag Manager.
+ * Description: Tags before and after body (Menu->Settings->Gp Google Tag Manager.
  * Version: 1.0
  * Author: German Pichardo
  * Author URI: http://www.german-pichardo.com
@@ -113,8 +113,8 @@ if( !class_exists( 'GpGoogleTagManager' )){
             { if(empty($this->gp_google_tag_manager_options = get_option('gp_google_tag_manager_option_name')['gp_google_tag_manager_account_code_1'])) return; ?>
                 <hr><h2>After Body</h2>
                 <p class='description'>Copy the following snippet and paste it immediately after the opening <code>body</code> </p>
-                <code><?php echo htmlspecialchars("<?php if (function_exists('google_tag_manager_js_2')) {
-                        google_tag_manager_js_2();
+                <code><?php echo htmlspecialchars("<?php if (function_exists('google_tag_manager_snippet_body')) {
+                        google_tag_manager_snippet_body();
                     }; ?>");?></code>
             <?php };
         }
@@ -171,7 +171,7 @@ if ( is_admin() )
 $gp_google_tag_manager_options = get_option('gp_google_tag_manager_option_name'); // Array of All Options
 $gp_google_tag_manager_account_code_1 = $gp_google_tag_manager_options['gp_google_tag_manager_account_code_1']; // Code
 // Head tag
-function google_tag_manager_js_1(){
+function google_tag_manager_snippet_head(){
     global $gp_google_tag_manager_account_code_1;
     if ($gp_google_tag_manager_account_code_1) { ?>
         <!-- Google Tag Manager -->
@@ -183,10 +183,10 @@ function google_tag_manager_js_1(){
         <!-- End Google Tag Manager -->
     <?php }
 }
-add_action('wp_head', 'google_tag_manager_js_1', 1); // Wp hook to inject into head
+add_action('wp_head', 'google_tag_manager_snippet_head', 1); // Wp hook to inject into head
 
 // After body tag
-function google_tag_manager_js_2_callback(){
+function google_tag_manager_snippet_body_callback(){
     global $gp_google_tag_manager_account_code_1;
 
     if ($gp_google_tag_manager_account_code_1) { ?>
@@ -197,10 +197,10 @@ function google_tag_manager_js_2_callback(){
     <?php }
 
 }
-add_action('google_tag_manager_js_2_action', 'google_tag_manager_js_2_callback');
+add_action('google_tag_manager_snippet_body_action', 'google_tag_manager_snippet_body_callback');
 
 // After Body action
 // Needs to create an action and a function to inset it manually after body
-function google_tag_manager_js_2() {
-    do_action('google_tag_manager_js_2_action');
+function google_tag_manager_snippet_body() {
+    do_action('google_tag_manager_snippet_body_action');
 }
