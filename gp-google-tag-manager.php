@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Gp: Google Tag Manager
  * Description: Tags before and after body (Menu->Settings->Gp Google Tag Manager.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: German Pichardo
  * Author URI: http://www.german-pichardo.com
  * Text Domain: gp-google-tag-manager-text-domain
